@@ -14,20 +14,21 @@ public class connection {
         ResultSet rs = null;  
   
         String url = "jdbc:mysql://localhost:3306/";  
-        String dbName = "form";  
+        String dbName = "kupoun";  
         String driver = "com.mysql.jdbc.Driver";  
         String userName = "root";  
-        String password = "password";  
+        String password = "root";  
         try {  
             Class.forName(driver).newInstance();  
             conn = DriverManager  
                     .getConnection(url + dbName, userName, password);  
   
-            pst = conn.prepareStatement("select * from login where user=? and password=?");  
+            pst = conn.prepareStatement("select * from admin where username=? and password=?");  
             pst.setString(1, name);  
             pst.setString(2, pass);  
   
             rs = pst.executeQuery();  
+            
             status = rs.next();  
   
         } catch (Exception e) {  

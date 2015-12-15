@@ -29,7 +29,7 @@
               <input type="text" class="form-control input-lg" id='username' placeholder="Email">
             </div>
             <div class="form-group">
-              <input type="password" class="form-control id='userpass' input-lg" placeholder="Password">
+              <input type="password" class="form-control input-lg" id='userpass' placeholder="Password">
             </div>
             <div class="form-group">
               <button class="btn btn-primary btn-lg btn-block" type='button' onclick='sign_in()'>Sign In</button>
@@ -51,14 +51,16 @@
 		<script src="js/bootstrap.min.js"></script>
 		<script type="text/javascript">
 			function sign_in(){
+				
 				var username=$('#username').val();
 				var userpass=$('#userpass').val();
+			
 				$.ajax({
 			        type: 'POST',
 			        url: 'Login',
 			        data: {username:username,userpass:userpass},
 			        success: function(res){
-			        	alert(res);
+			        	window.location.href='dashboard.jsp';
 			        }
 			    });
 			}

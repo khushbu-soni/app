@@ -29,14 +29,11 @@ public class Login extends HttpServlet{
 	        if(session!=null)  
 	        session.setAttribute("name", n);  
 	  
-	        if(connection.validate(n, p)){    
-	            RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");    
-	            rd.forward(request,response);    
+	        if(connection.validate(n,p)){    
+	            out.print("true");  
 	        }    
 	        else{    
-	            out.print("<p style=\"color:red\">Sorry username or password error</p>");    
-	            RequestDispatcher rd=request.getRequestDispatcher("index.jsp");    
-	            rd.include(request,response);    
+	        	out.print("false");   
 	        }    
 	  
 	        out.close();    
