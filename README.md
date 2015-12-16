@@ -1,2 +1,0 @@
-# app
-A simple application
